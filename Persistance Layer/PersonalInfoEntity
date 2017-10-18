@@ -1,0 +1,13 @@
+var db = require('./dbconnect');
+var dbcon = db.dbcon;
+
+exports.selectPersonInfo = function (callback) {
+    dbcon.query('select * from personal_info',function (err,results) {
+        if(err){
+            callback(err);
+        }else{
+            callback(results);
+        }
+    });
+};
+
